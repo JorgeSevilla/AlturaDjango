@@ -15,11 +15,13 @@ Including another URLconf
 """
 
 from django.conf.urls import url
-from perfis.views import index, exibir
+from perfis.views import index, exibir, convidar
+from perfis import views
 
 urlpatterns = [
     #url(r'^admin/', admin.site.urls),
     #url(r'^$', index, name='index'),
-    url(r'^$', index, name='index'),
-    url(r'^perfis/v1/(?P<perfil_id>\d+)$', exibir, name='exibir'),
+    url(r'^$', views.index, name='index'),
+    url(r'^perfis/v1/(?P<perfil_id>\d+)$', views.exibir, name='exibir'),
+    url(r'^perfis/(?P<perfil_id>\d+)/convidar$', views.convidar, name='convidar')
 ]
